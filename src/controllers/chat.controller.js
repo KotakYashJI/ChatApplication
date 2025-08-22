@@ -5,7 +5,7 @@ export const createchat = async (req, res) => {
         const user = req.user;
         const { title } = req.body;
         const newchat = await chatmodel.create({
-            user: user,
+            user: user._id,
             title: title
         });
         res.status(201).json({
