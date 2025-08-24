@@ -1,20 +1,19 @@
 import chatmodel from "../models/chat.model.js"
 
 export const createchat = async (req, res) => {
+    const { text } = req.body;
     try {
-        const user = req.user;
-        const { title } = req.body;
         const newchat = await chatmodel.create({
-            user: user._id,
-            title: title
+            text: text,
+            user: req.user._id
         });
         res.status(201).json({
-            message: "new chat added",
+            message: "Chat created",
             newchat
-        })
+        });
     } catch (error) {
         res.status(500).json({
             message: error
-        })
+        });
     }
 }

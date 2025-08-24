@@ -9,7 +9,7 @@ const userschema = mongoose.Schema({
         lastname: {
             type: String,
             required: true
-        },
+        }
     },
     email: {
         type: String,
@@ -18,8 +18,8 @@ const userschema = mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
-})
+    },
+});
 
 const usermodel = mongoose.model("users", userschema);
 
